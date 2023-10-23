@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -33,12 +32,8 @@ export default function DataFunc() {
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Image source={require('./src/assets/img/logo.png')} style={styles.imagem} />
-        <Text style={{ marginHorizontal: 30, color: 'black', fontSize: 18 }}>
-          Nome: Ryan Alberto de Alencar
-        </Text>
-        <Text style={{ marginHorizontal: 30, color: 'black', fontSize: 18, marginBottom: 50 }}>
-          Locação: 01
-        </Text>
+        <Text style={styles.nameText}>Nome: Ryan Alberto de Alencar</Text>
+        <Text style={styles.locText}>Locação: 01</Text>
         <View style={styles.form}>
           <View>
             {data.map((item) => (
@@ -49,28 +44,15 @@ export default function DataFunc() {
                   value={item.text}
                   status={selected === item.id ? 'checked' : 'unchecked'}
                   onPress={() => setSelected(item.id)}
-                  labelStyle={{ color: 'black', fontSize: 14 }}
-                  style={{ width: 350, borderRadius: 16 }}
+                  labelStyle={styles.radioLabel}
+                  style={styles.radioButton}
                 />
               </View>
             ))}
           </View>
         </View>
-        <TouchableOpacity
-          style={{
-            width: 350,
-            height: 40,
-            backgroundColor: 'white',
-            alignContent: 'center',
-            alignItems: 'center',
-            alignSelf: 'center',
-            borderRadius: 16,
-            borderColor: 'black',
-            borderWidth: 2,
-            marginBottom: 50,
-          }}
-        >
-          <Text style={{ top: 8, color: 'black' }}>Baixar PDF</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Baixar PDF</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
@@ -78,6 +60,41 @@ export default function DataFunc() {
 }
 
 const styles = StyleSheet.create({
+  locText: {
+    marginHorizontal: 30,
+    color: 'black',
+    fontSize: 18,
+    marginBottom: 50,
+  },
+  nameText: {
+    marginHorizontal: 30,
+    color: 'black',
+    fontSize: 18,
+  },
+  radioButton: {
+    width: 350,
+    borderRadius: 16,
+  },
+  radioLabel: {
+    color: 'black',
+    fontSize: 14,
+  },
+  buttonText: {
+    top: 8,
+    color: 'black',
+  },
+  button: {
+    width: 350,
+    height: 40,
+    backgroundColor: 'white',
+    alignContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderRadius: 16,
+    borderColor: 'black',
+    borderWidth: 2,
+    marginBottom: 50,
+  },
   form: {
     flex: 1,
     backgroundColor: 'white',
