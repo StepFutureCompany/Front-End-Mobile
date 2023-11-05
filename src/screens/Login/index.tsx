@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import {
   Image,
@@ -14,7 +16,7 @@ export default function LoginScreen() {
     <View style={styles.mainContainer}>
       <SafeAreaView>
         <View style={styles.logo}>
-          <Image source={require('./src/assets/img/logo.png')} style={styles.imagem} />
+          <Image source={require('../../assets/img/logo.png')} style={styles.imagem} />
         </View>
         <View />
         <View style={styles.form}>

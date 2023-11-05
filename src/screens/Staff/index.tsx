@@ -1,10 +1,12 @@
+/* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function DataFunc() {
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={require('./src/assets/img/logo.png')} style={styles.imagem} />
+      <Image source={require('../../assets/img/logo.png')} style={styles.imagem} />
       <View style={styles.form}>
         <Text style={styles.mainText}>Dados funcionarios</Text>
         <Text style={styles.inputTitle}>Nome completo</Text>
