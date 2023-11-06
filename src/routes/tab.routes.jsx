@@ -1,21 +1,33 @@
-/* eslint-disable prettier/prettier */
+/* eslint-disable react/no-unstable-nested-components */
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/Feather';
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import ListFunc from '../screens/List';
+import Logout from '../screens/Logout';
+import DataFunc from '../screens/Staff';
 
-import LoginScreen from "../screens/Login";
-import DataFunc from "../screens/Staff";
-import Start from "../screens/Start";
-import ListFunc from '../screens/List'
-
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 export default function TabRoutes() {
-    return (
-        <Tab.Navigator>
-            <Tab.Screen name="Inicial" component={Start}/>
-            <Tab.Screen name="Funcionario" component={DataFunc}/>
-            <Tab.Screen name="Login" component={LoginScreen}/>
-            <Tab.Screen name="ListFunc" component={ListFunc}/>
-        </Tab.Navigator>
-    )
+  return (
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Screen
+        name="Sair"
+        component={Logout}
+        options={{ tabBarIcon: () => <Icon name="log-out" size={20} /> }}
+      />
+      {/* <Tab.Screen name="Inicial" component={Start} /> */}
+      <Tab.Screen
+        name="Funcionario"
+        component={DataFunc}
+        options={{ tabBarIcon: () => <Icon name="user" size={20} /> }}
+      />
+      {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
+      <Tab.Screen
+        name="ListFunc"
+        component={ListFunc}
+        options={{ tabBarIcon: () => <Icon name="check-square" size={20} /> }}
+      />
+    </Tab.Navigator>
+  );
 }

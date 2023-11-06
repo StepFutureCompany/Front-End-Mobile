@@ -13,6 +13,11 @@
     "test:cov": "jest --coverage"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-native-fontawesome": "^0.3.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native/metro-config": "^0.73.1",
     "@react-navigation/bottom-tabs": "^6.5.11",
@@ -24,6 +29,8 @@
     "react-native-reanimated": "^3.5.4",
     "react-native-safe-area-context": "^4.7.4",
     "react-native-screens": "^3.27.0",
+    "react-native-svg": "^13.14.0",
+    "react-native-vector-icons": "^10.0.1",
     "styled-components": "^6.0.8"
   },
   "devDependencies": {

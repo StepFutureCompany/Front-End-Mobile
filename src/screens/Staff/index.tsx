@@ -1,43 +1,43 @@
-/* eslint-disable prettier/prettier */
-
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function DataFunc() {
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={require('../../assets/img/logo.png')} style={styles.imagem} />
-      <View style={styles.form}>
-        <Text style={styles.mainText}>Dados funcionarios</Text>
-        <Text style={styles.inputTitle}>Nome completo</Text>
-        <View style={styles.input}>
-          <TextInput editable={false} value="Ryan Alberto de Alencar" style={styles.inputValue} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Image source={require('../../assets/img/logo.png')} style={styles.imagem} />
+        <View style={styles.form}>
+          <Text style={styles.mainText}>Dados funcionarios</Text>
+          <Text style={styles.inputTitle}>Nome completo</Text>
+          <View style={styles.input}>
+            <TextInput editable={false} value="Ryan Alberto de Alencar" style={styles.inputValue} />
+          </View>
+          <Text style={styles.inputTitle}>Departamento</Text>
+          <View style={styles.input}>
+            <TextInput editable={false} value="Escritório" style={styles.inputValue} />
+          </View>
+          <Text style={styles.inputTitle}>Cargo</Text>
+          <View style={styles.input}>
+            <TextInput editable={false} value="Auxiliar Administrativo" style={styles.inputValue} />
+          </View>
+          <Text style={styles.inputTitle}>Lotação</Text>
+          <View style={styles.input}>
+            <TextInput editable={false} value="01" style={styles.inputValue} />
+          </View>
+          <Text style={styles.inputTitle}>Admissão</Text>
+          <View style={styles.input}>
+            <TextInput editable={false} value="12/10/2018" style={styles.inputValue} />
+          </View>
+          <View style={styles.inputInfo}>
+            <TextInput
+              multiline
+              value="Caso precise alterar alguma informação digira-se ao Departamento de Relações Humanas."
+              editable={false}
+              style={styles.inputValue}
+            />
+          </View>
         </View>
-        <Text style={styles.inputTitle}>Departamento</Text>
-        <View style={styles.input}>
-          <TextInput editable={false} value="Escritório" style={styles.inputValue} />
-        </View>
-        <Text style={styles.inputTitle}>Cargo</Text>
-        <View style={styles.input}>
-          <TextInput editable={false} value="Auxiliar Administrativo" style={styles.inputValue} />
-        </View>
-        <Text style={styles.inputTitle}>Lotação</Text>
-        <View style={styles.input}>
-          <TextInput editable={false} value="01" style={styles.inputValue} />
-        </View>
-        <Text style={styles.inputTitle}>Admissão</Text>
-        <View style={styles.input}>
-          <TextInput editable={false} value="12/10/2018" style={styles.inputValue} />
-        </View>
-        <View style={styles.inputInfo}>
-          <TextInput
-            multiline
-            value="Caso precise alterar alguma informação digira-se ao Departamento de Relações Humanas."
-            editable={false}
-            style={styles.inputValue}
-          />
-        </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }

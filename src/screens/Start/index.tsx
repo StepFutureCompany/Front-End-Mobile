@@ -1,12 +1,10 @@
-/* eslint-disable prettier/prettier */
-
 import React from 'react';
 import { Image, SafeAreaView, StyleSheet } from 'react-native';
 
 export default function Start() {
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={require('../../assets/img/logo.png')} style={styles.imagem}/>
+      <Image source={require('../../assets/img/logo.png')} style={styles.imagem} />
     </SafeAreaView>
   );
 }
