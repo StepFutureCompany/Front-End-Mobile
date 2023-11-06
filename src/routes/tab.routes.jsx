@@ -14,19 +14,26 @@ export default function TabRoutes() {
       <Tab.Screen
         name="Sair"
         component={Logout}
-        options={{ tabBarIcon: () => <Icon name="log-out" size={20} /> }}
+        options={{
+          tabBarIcon: () => <Icon name="log-out" size={20} color={'#1ca6f1'} />,
+          tabBarLabel: 'Sair',
+        }}
       />
-      {/* <Tab.Screen name="Inicial" component={Start} /> */}
       <Tab.Screen
         name="Funcionario"
         component={DataFunc}
-        options={{ tabBarIcon: () => <Icon name="user" size={20} /> }}
+        options={{
+          tabBarIcon: () => <Icon name="user" size={20} color={'#1ca6f1'} />,
+          tabBarLabel: 'Dados do Funcionário',
+        }}
       />
-      {/* <Tab.Screen name="Login" component={LoginScreen} /> */}
       <Tab.Screen
         name="ListFunc"
         component={ListFunc}
-        options={{ tabBarIcon: () => <Icon name="check-square" size={20} /> }}
+        options={{
+          tabBarIcon: () => <Icon name="check-square" size={20} color={'#1ca6f1'} />,
+          tabBarLabel: 'Folha de Ponto',
+        }}
       />
     </Tab.Navigator>
   );
