@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.mainContainer}>
       <SafeAreaView>
@@ -26,7 +26,12 @@ export default function LoginScreen() {
           <View style={styles.input}>
             <TextInput placeholder="Escreva sua senha" style={{ paddingLeft: 10 }} />
           </View>
-          <TouchableOpacity onPress={() => console.log('User logado')} style={styles.button}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Main');
+            }}
+            style={styles.button}
+          >
             <Text style={styles.textButton}>Acessar</Text>
           </TouchableOpacity>
         </View>
