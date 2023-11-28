@@ -3,7 +3,7 @@ export const holerite = [
   {
     periodo_trabalhado: '26',
     valor_sal_bruto: '3500',
-    valor_sal_liquido:"3200" ,
+    valor_sal_liquido: '3200',
     Periculosidade: '100',
     HorasExtra: '150',
     INSS: '80',
@@ -71,4 +71,3 @@ export const holerite = [
     Falta: '6',
   },
 ];
-

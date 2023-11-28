@@ -26,7 +26,6 @@ const AppNavigator = () => {
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Main" component={TabRoutes} options={{ headerShown: false }} />
       <Stack.Screen name="Holerite" component={HoleriteScreen} options={{ headerShown: false }} />
-      
     </Stack.Navigator>
   );
 };

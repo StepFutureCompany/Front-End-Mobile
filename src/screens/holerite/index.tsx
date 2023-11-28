@@ -30,15 +30,15 @@ const HoleriteScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.form}>
           <Text style={styles.mainText}>Holerite</Text>
-          
-          {renderTextBlock("Período Trabalhado", randomData.periodo_trabalhado)}
-          {renderTextBlock("Valor Salário Bruto", randomData.valor_sal_bruto)}
-          {renderTextBlock("Salário Líquido", randomData.valor_sal_liquido)}
-          {renderTextBlock("Periculosidade", randomData.Periculosidade)}
-          {renderTextBlock("Horas Extra", randomData.HorasExtra)}
-          {renderTextBlock("INSS", randomData.INSS)}
-          {renderTextBlock("FGTS", randomData.FGTS)}
-          {renderTextBlock("Falta", randomData.Falta)}
+
+          {renderTextBlock('Período Trabalhado', randomData.periodo_trabalhado)}
+          {renderTextBlock('Valor Salário Bruto', randomData.valor_sal_bruto)}
+          {renderTextBlock('Salário Líquido', randomData.valor_sal_liquido)}
+          {renderTextBlock('Periculosidade', randomData.Periculosidade)}
+          {renderTextBlock('Horas Extra', randomData.HorasExtra)}
+          {renderTextBlock('INSS', randomData.INSS)}
+          {renderTextBlock('FGTS', randomData.FGTS)}
+          {renderTextBlock('Falta', randomData.Falta)}
         </View>
       </ScrollView>
     </SafeAreaView>
