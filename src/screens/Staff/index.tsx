@@ -1,7 +1,23 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function DataFunc() {
+  const [dadosDoBackend, setDadosDoBackend] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://10.0.2.2:3333/funcionarios');
+        setDadosDoBackend(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(dadosDoBackend);
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -37,6 +53,7 @@ export default function DataFunc() {
             />
           </View>
         </View>
+        {/* <Button title="Teste" onPress={() => getFunc()} /> */}
       </ScrollView>
     </SafeAreaView>
   );

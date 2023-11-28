@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect } from 'react';
 
+import HoleriteScreen from '../screens/holerite';
 import LoginScreen from '../screens/Login';
 import Start from '../screens/Start';
 import TabRoutes from './tab.routes';
@@ -24,7 +25,9 @@ const AppNavigator = () => {
       <Stack.Screen name="Start" component={Start} options={{ headerShown: false }} />
       <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Main" component={TabRoutes} options={{ headerShown: false }} />
+      <Stack.Screen name="Holerite" component={HoleriteScreen} options={{ headerShown: false }} />
+      
     </Stack.Navigator>
   );
-}
+};
 export default AppNavigator;

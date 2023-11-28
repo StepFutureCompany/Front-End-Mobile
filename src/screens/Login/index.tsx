@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   SafeAreaView,
@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
+  const [user, setUser] = useState();
+
   return (
     <View style={styles.mainContainer}>
       <SafeAreaView>
@@ -20,11 +22,11 @@ export default function LoginScreen({ navigation }) {
         <View style={styles.form}>
           <Text style={styles.mainText}>Login</Text>
           <View style={styles.input}>
-            <TextInput placeholder="Escreva seu login" style={{ paddingLeft: 10 }} />
+            <TextInput placeholder="Escreva seu Nome" style={{ paddingLeft: 10 }} />
           </View>
           <Text style={styles.mainText}>Senha</Text>
           <View style={styles.input}>
-            <TextInput placeholder="Escreva sua senha" style={{ paddingLeft: 10 }} />
+            <TextInput placeholder="Escreva seu CPF" style={{ paddingLeft: 10 }} />
           </View>
           <TouchableOpacity
             onPress={() => {

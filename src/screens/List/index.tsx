@@ -25,16 +25,15 @@ const data = [
   { id: 12, text: 'Dezembro' },
 ];
 
-export default function ListFunc() {
+export default function ListFunc({ navigation }) {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Image source={require('../../assets/img/logo.png')} style={styles.imagem} />
-        <Text style={styles.nameText}>Nome: Ryan Alberto de Alencar</Text>
-        <Text style={styles.locText}>Locação: 01</Text>
         <View style={styles.form}>
+          <Text style={{ fontSize: 25, color: 'black' }}>Holerite</Text>
           <View>
             {data.map((item) => (
               <View key={item.id}>
@@ -51,8 +50,13 @@ export default function ListFunc() {
             ))}
           </View>
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Baixar PDF</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate('Holerite', { selectedMonth: selected });
+          }}
+        >
+          <Text style={styles.buttonText}>Mostrar Holerite</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
@@ -114,6 +118,6 @@ const styles = StyleSheet.create({
     width: 300,
     height: 100,
     alignSelf: 'center',
-    marginBottom: 10,
+    marginBottom: 30,
   },
 });
