@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+/* eslint-disable prettier/prettier */
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import {
+  Alert,
   Image,
   SafeAreaView,
   StyleSheet,
@@ -9,9 +12,50 @@ import {
   View,
 } from 'react-native';
 
-export default function LoginScreen({ navigation }) {
-  const [user, setUser] = useState();
+import { useAuth } from '../../context';
 
+export default function LoginScreen({ navigation }) {
+  const {login} = useAuth()
+  const [dadosDoBackend, setDadosDoBackend] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://10.0.2.2:3333/funcionarios');
+        setDadosDoBackend(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    };
+    fetchData();
+  }, []);
+  
+  const [user, setUser] = useState({
+    login: '',
+    senha: '',
+  });
+  console.log(user);
+
+  const refreshUser = () => (
+    setUser({login: '', senha: ''})
+  )
+
+  const handleLogin = () => {
+    const foundUser = dadosDoBackend.find(
+      (func) => func.email === user.login && func.cpf === user.senha
+    );
+  
+    if (foundUser) {
+      login(foundUser);
+      navigation.navigate('Main', { user: foundUser });
+      Alert.alert('Login efetuado com sucesso');
+      refreshUser();
+    } else {
+      refreshUser();
+      Alert.alert('Usuário não encontrado');
+    }
+  };
+  
   return (
     <View style={styles.mainContainer}>
       <SafeAreaView>
@@ -22,16 +66,24 @@ export default function LoginScreen({ navigation }) {
         <View style={styles.form}>
           <Text style={styles.mainText}>Login</Text>
           <View style={styles.input}>
-            <TextInput placeholder="Escreva seu Nome" style={{ paddingLeft: 10 }} />
+            <TextInput
+              placeholder="Escreva seu Nome"
+              value={user.login}
+              style={{ paddingLeft: 10 }}
+              onChangeText={(text) => setUser({ ...user, login: text })}
+            />
           </View>
           <Text style={styles.mainText}>Senha</Text>
           <View style={styles.input}>
-            <TextInput placeholder="Escreva seu CPF" style={{ paddingLeft: 10 }} />
+            <TextInput
+              placeholder="Escreva seu CPF"
+              value={user.senha}
+              style={{ paddingLeft: 10 }}
+              onChangeText={(text) => setUser({ ...user, senha: text })}
+            />
           </View>
           <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Main');
-            }}
+            onPress={() => handleLogin()}
             style={styles.button}
           >
             <Text style={styles.textButton}>Acessar</Text>

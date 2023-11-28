@@ -1,22 +1,10 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function DataFunc() {
-  const [dadosDoBackend, setDadosDoBackend] = useState(null);
+import { useAuth } from '../../context';
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://10.0.2.2:3333/funcionarios');
-        setDadosDoBackend(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-      }
-    };
-    fetchData();
-  }, []);
-  console.log(dadosDoBackend);
+export default function DataFunc() {
+  const { user } = useAuth();
 
   return (
     <SafeAreaView style={styles.mainContainer}>
@@ -26,23 +14,23 @@ export default function DataFunc() {
           <Text style={styles.mainText}>Dados funcionarios</Text>
           <Text style={styles.inputTitle}>Nome completo</Text>
           <View style={styles.input}>
-            <TextInput editable={false} value="Ryan Alberto de Alencar" style={styles.inputValue} />
+            <TextInput editable={false} value={user.nome} style={styles.inputValue} />
           </View>
-          <Text style={styles.inputTitle}>Departamento</Text>
+          <Text style={styles.inputTitle}>Cidade</Text>
           <View style={styles.input}>
-            <TextInput editable={false} value="Escritório" style={styles.inputValue} />
+            <TextInput editable={false} value={user.cidade} style={styles.inputValue} />
           </View>
           <Text style={styles.inputTitle}>Cargo</Text>
           <View style={styles.input}>
-            <TextInput editable={false} value="Auxiliar Administrativo" style={styles.inputValue} />
+            <TextInput editable={false} value={user.cargo} style={styles.inputValue} />
           </View>
           <Text style={styles.inputTitle}>Lotação</Text>
           <View style={styles.input}>
-            <TextInput editable={false} value="01" style={styles.inputValue} />
+            <TextInput editable={false} value={user.ra.toString()} style={styles.inputValue} />
           </View>
-          <Text style={styles.inputTitle}>Admissão</Text>
+          <Text style={styles.inputTitle}>PIS</Text>
           <View style={styles.input}>
-            <TextInput editable={false} value="12/10/2018" style={styles.inputValue} />
+            <TextInput editable={false} value={user.pis} style={styles.inputValue} />
           </View>
           <View style={styles.inputInfo}>
             <TextInput
