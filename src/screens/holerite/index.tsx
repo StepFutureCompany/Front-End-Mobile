@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -30,7 +29,6 @@ const HoleriteScreen = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.form}>
           <Text style={styles.mainText}>Holerite</Text>
-
           {renderTextBlock('Período Trabalhado', randomData.periodo_trabalhado)}
           {renderTextBlock('Valor Salário Bruto', randomData.valor_sal_bruto)}
           {renderTextBlock('Salário Líquido', randomData.valor_sal_liquido)}
@@ -49,9 +47,6 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: '#1ca6f1',
-  },
-  header: {
-    // Add styles for your header component
   },
   form: {
     backgroundColor: 'white',
